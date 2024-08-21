@@ -1,13 +1,25 @@
-<html>
-  <head>
-    <link
-			rel="stylesheet"
-			href="style.css">
-  </head>
-  <body>
-	<h1>Nils ist ein hund</h1>
-	<h3></h3>
-	<p></p>
-	<p></p>
-  </body>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live-Kamera-Stream</title>
+</head>
+<body>
+    <h1>Live-Kamera-Stream</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+
+    <script>
+        const video = document.getElementById('video');
+
+        // Anfrage für die Webcam
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Fehler beim Zugriff auf die Kamera: ', error);
+            });
+    </script>
+</body>
 </html>
